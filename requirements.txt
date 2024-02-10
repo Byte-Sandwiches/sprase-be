@@ -1,0 +1,8 @@
+fastapi
+pymongo
+pymongo[srv]
+pydantic>=1.8.0,<2.0.0
+uvicorn
+python-dotenv
+python-multipart
+requests-toolbelt
