@@ -34,26 +34,3 @@ class MockCSR:
                             for i in range(self.row_pointers[mi], self.row_pointers[mi + 1]))]
         return merchants
 
-# data = [
-#     (0, 1),
-#     (0, 2),
-#     (1, 2),
-#     (1, 0),
-#     (2, 1),
-#     (3, 1),
-#     (3, 2),
-#     (4, 0),
-#     (4, 2)
-# ]
-# mock_csr = MockCSR(5, 3)
-#
-# for merchant_id, pincode in data:
-#     mock_csr.add_service(merchant_id, pincode)
-#
-# mock_csr.done()
-#
-# print(mock_csr.is_there(0, 1))
-# print(mock_csr.is_there(6, 1))
-#
-# print("Merchants based on pincode 2:", mock_csr.based_merchants(2))
-# print("Merchants based on pincode 0:", mock_csr.based_merchants(0))
