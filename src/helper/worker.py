@@ -1,4 +1,6 @@
-class MockCSR:
+from src.helper.ws import ws
+
+class CSR:
     def __init__(self, rows, columns):
         self.rows = rows
         self.columns = columns
@@ -29,8 +31,14 @@ class MockCSR:
         return False
 
     def based_merchants(self, pincode):
-        merchants = [mi for mi in range(len(self.row_pointers) - 1)
-                     if any(self.column_indices[i] == pincode and self.values[i] == 1
-                            for i in range(self.row_pointers[mi], self.row_pointers[mi + 1]))]
+        merchants = []
+        for mi in range(len(self.row_pointers) -  1):
+            for i in range(self.row_pointers[mi], self.row_pointers[mi +  1]):
+                if self.column_indices[i] == pincode and self.values[i] ==  1:
+                    merchants.append(mi)
+                    ws.publish(f"csr_{pincode}", {"pin": pincode, "merch": [mi]})
+                    break
         return merchants
 
+
+csr = CSR(0, 0)
