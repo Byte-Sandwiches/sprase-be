@@ -3,7 +3,7 @@ from utils import make_post_request
 
 app = FastAPI()
 
-# Access user ID from middleware (replace with your authentication logic)
+
 async def get_user_id(request):
     
     return 12345  
